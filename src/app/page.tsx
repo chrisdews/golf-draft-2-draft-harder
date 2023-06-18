@@ -1,24 +1,30 @@
-import Image from "next/image";
 import TourSelection from "@/components/tour-selection/TourSelection";
 import PrimaryButton from "@/components/primary-button/PrimaryButton";
+import NextTournament from "@/components/next-tournament/NextTournament";
+import NextTournamentAiImage from "@/components/ai-generated-image/NextTournamentAiImage";
 
 export default async function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-
-
-      <PrimaryButton path={'/create'} className="bg-blue-500 hover:bg-blue-700">CREATE</PrimaryButton>
-      <PrimaryButton path={'/join'} className="bg-green-500 hover:bg-green-700">JOIN</PrimaryButton>
-
-      <TourSelection />
+    <main className="flex h-[85vh] flex-col items-center gap-2 p-4 max-w-7xl m-auto">
+      <h1 className="text-2xl font-bold mb-2 w-full">Next Tournament</h1>
+      <span className="flex flex-col-reverse gap-2 w-full sm:flex-row">
+        <NextTournament />
+        <NextTournamentAiImage />
+      </span>
+      <span className="flex ">
+        <PrimaryButton
+          path={"/create"}
+          className="bg-blue-500 hover:bg-blue-700"
+        >
+          CREATE
+        </PrimaryButton>
+        <PrimaryButton
+          path={"/join"}
+          className="bg-green-500 hover:bg-green-700"
+        >
+          JOIN
+        </PrimaryButton>
+      </span>
     </main>
   );
 }

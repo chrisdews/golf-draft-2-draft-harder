@@ -48,7 +48,7 @@ export default function RootLayout({
           </div>
         </nav>
 
-        {children}
+        <div className="mt-[72px]">{children}</div>
       </body>
     </html>
   );

@@ -14,5 +14,17 @@ export async function GET() {
 
   const data = await res.json();
 
-  return NextResponse.json({ data });
+  const activePgaTour = data?.results?.filter(
+    (tour: { tour_name: string | string[]; active: number }) =>
+      tour.tour_name.includes("PGA") && tour.active
+  );
+
+  if (activePgaTour.length === 0) {
+    return NextResponse.json(
+      { error: "Internal Server Error - No Active PGA Tournament" },
+      { status: 500 }
+    );
+  }
+
+  return NextResponse.json({ activePgaTour });
 }

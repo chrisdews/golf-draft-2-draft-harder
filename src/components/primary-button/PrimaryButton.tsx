@@ -11,7 +11,7 @@ const PrimaryButton = ({
 }): JSX.Element => (
   <Link
     href={path}
-    className={`border text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none focus:outline-none focus:shadow-outline ${className}`}
+    className={`w-24 flex justify-center items-center border text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none focus:outline-none focus:shadow-outline ${className}`}
   >
     {children}
   </Link>

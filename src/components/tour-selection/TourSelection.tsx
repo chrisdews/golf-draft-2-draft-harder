@@ -14,6 +14,8 @@ interface Tour {
   active: number;
 }
 
+
+//leaving this in as example of how to hydrate client
 async function fetchTournamentsData(): Promise<any> {
   const res = await fetch("http://localhost:3000/rapidapi");
   if (!res.ok) {
@@ -23,6 +25,7 @@ async function fetchTournamentsData(): Promise<any> {
   return res.json();
 }
 
+// keeping this as an example for now.
 export default async function TourSelection() {
   const { data } = await fetchTournamentsData();
   const { results } = data;
@@ -37,7 +40,7 @@ export default async function TourSelection() {
   return (
     <>
       <ol>
-        <h1>Tour list server side 'store':</h1>
+        <h1>Tour list server side store:</h1>
         {tourListFromState.map((tour: Tour) => (
           <li key={`${tour.tour_name}-${tour.season_id}`}>
             {tour.tour_name} - {tour.season_id}
